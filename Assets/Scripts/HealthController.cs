@@ -15,11 +15,14 @@ namespace Assets.Scripts
             private get => _onDamageCallback;
             set => _onDamageCallback = value ?? VoidCallback;
         }
-        private float _health;
+
+        //ENCAPSULATION
+        [SerializeField]
+        private float _health = 100f;
         public float Health
         {
             get => _health;
-            private set => _health = Math.Min(value, 0.0f);
+            set => _health = Math.Max(value, 0.0f);
         }
 
         public HealthController(float health)
